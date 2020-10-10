@@ -7,8 +7,7 @@ const Listing = require('./models/listing')
 app.use(cors())
 
 app.get('/api/search/:query', async (req, res) => {
-    const result = await Listing.find({ title: {$regex: req.params.query } })
-    console.log(result)
+    const result = await Listing.find({ title: {$regex: req.params.query } }).limit(250)
     res.json(result).end()
 })
 
