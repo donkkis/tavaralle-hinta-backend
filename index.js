@@ -7,7 +7,12 @@ const Listing = require('./models/listing')
 app.use(cors())
 
 app.get('/api/search/:query', async (req, res) => {
-    const result = await Listing.find({ title: {$regex: req.params.query } }).limit(250)
+    // Not scalable
+    // https://stackoverflow.com/questions/7101703/how-do-i-make-case-insensitive-queries-on-mongodb
+    // TODO use case-insensitive indexing https://docs.mongodb.com/manual/core/index-case-insensitive/
+    const result = await Listing
+      .find({ title: {$regex: new RegExp(req.params.query, 'i') } })
+      .limit(250)
     res.json(result).end()
 })
 
