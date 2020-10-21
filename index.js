@@ -6,6 +6,7 @@ const Listing = require('./models/listing')
 const InsertOp = require('./models/insertOp')
 
 app.use(cors())
+app.use(express.static('build'))
 
 app.get('/api/search/:query', async (req, res) => {
     // Not scalable
@@ -27,7 +28,7 @@ app.get('/api/count', async (req, res) => {
   res.json(result).end()
 })
 
-const PORT = 3002
+const PORT = process.env.PORT || 3002
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })

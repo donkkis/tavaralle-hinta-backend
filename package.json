@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:ui": "rmdir /s /q build & cd ..\\tavaralle-hinta && npm run build --prod && xcopy build ..\\tavaralle-hinta-backend\\build /E /I /Q /H",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
