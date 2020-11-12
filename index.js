@@ -1,7 +1,8 @@
 const express = require('express')
-require('dotenv').config()
+// require('dotenv').config()
 const cors = require('cors')
 const app = express()
+const config = require('./utils/config')
 const Listing = require('./models/listing')
 const InsertOp = require('./models/insertOp')
 
@@ -28,7 +29,7 @@ app.get('/api/count', async (req, res) => {
   res.json(result).end()
 })
 
-const PORT = process.env.PORT || 3002
+const PORT = config.PORT || 3002
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
