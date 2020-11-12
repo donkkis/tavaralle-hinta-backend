@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/5184c442-f684-4593-b5a6-0598ebc8719f/resourceGroups/tavaralle-hinta/providers/Microsoft.Web/sites/tory-screip-app",
-    "appService.deploySubpath": "."
-}
