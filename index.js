@@ -19,6 +19,10 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
 app.use(cors())
 app.use(express.static('build'))
 
+app.get('/api/hello', (req, res) => {
+  res.send('Hello, this is Node!').end()
+})
+
 app.get('/api/search/:query', async (req, res) => {
     // Not scalable
     // https://stackoverflow.com/questions/7101703/how-do-i-make-case-insensitive-queries-on-mongodb
@@ -43,3 +47,5 @@ const PORT = config.PORT || 3002
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
+
+module.exports = app

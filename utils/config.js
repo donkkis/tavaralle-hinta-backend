@@ -17,10 +17,6 @@ switch (process.env.NODE_ENV) {
         break
 }
 
-if (process.env.NODE_ENV === 'test') {
-    MONGODB_URI = process.env.TEST
-}
-
 module.exports = {
     MONGODB_URI,
     PORT
