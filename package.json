@@ -7,7 +7,8 @@
     "build:ui": "rmdir /s /q build & cd ..\\tavaralle-hinta && npm run build --prod && xcopy build ..\\tavaralle-hinta-backend\\build /E /I /Q /H",
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
-    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
+    "test:detect": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles"
   },
   "author": "Panu Aho",
   "license": "MIT",
