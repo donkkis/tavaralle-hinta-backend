@@ -9,6 +9,6 @@ test('Server can say hello', async () => {
   expect(response.text).toBe('Hello, this is Node!')
 })
 
-afterAll(() => {
-  mongoose.connection.close()
+afterAll(async () => {
+  await mongoose.connection.close()
 })
