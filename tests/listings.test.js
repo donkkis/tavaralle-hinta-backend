@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
 const supertest = require('supertest')
-const app = require('../app')
+const { app, mongoclient } = require('../app')
+const config = require('../utils/config')
 
 const api = supertest(app)
 
@@ -10,5 +10,4 @@ test('Server can say hello', async () => {
 })
 
 afterAll(async () => {
-  await mongoose.connection.close()
 })
