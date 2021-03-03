@@ -1,6 +1,7 @@
 const listingRouter = require('express').Router()
 const Listing = require('../models/listing')
 const InsertOp = require('../models/insertOp')
+const Tag = require('../models/tag')
 
 listingRouter.get('/hello', (req, res) => {
     res.send('Hello, this is Node!').end()
@@ -23,6 +24,11 @@ listingRouter.get('/lastinsert', async (req, res) => {
 
 listingRouter.get('/count', async (req, res) => {
     const result = await Listing.estimatedDocumentCount()
+    res.json(result).end()
+})
+
+listingRouter.get('/tags', async (req, res) => {
+    const result = await Tag.find().limit(1000)
     res.json(result).end()
 })
 
